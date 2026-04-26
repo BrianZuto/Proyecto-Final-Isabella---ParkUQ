@@ -21,7 +21,7 @@
         </VBox>
         <VBox styleClass="stat-card" alignment="CENTER" spacing="6" prefWidth="200" prefHeight="90">
             <Label text="Ingresos del Día" styleClass="stat-label"/>
-            <Label fx:id="lblIngresosDiarios" text="$ 0" styleClass="stat-value"/>
+            <Label fx:id="lblIngresosDiarios" text="0" styleClass="stat-value"/>
         </VBox>
     </HBox>
 

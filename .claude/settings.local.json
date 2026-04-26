@@ -14,7 +14,9 @@
       "Bash(python3 -c ' *)",
       "Bash(./mvnw test *)",
       "Bash(./mvnw compile *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(./mvnw clean *)"
     ]
   }
 }
