@@ -20,7 +20,6 @@ public class Administrativo extends Usuario {
      */
     @Override
     public double obtenerDescuento() {
-        // TODO [Juan David]: retornar el descuento configurado para administrativos
-        return 0.0;
+        return 0.15; // 15% descuento para personal administrativo
     }
 }

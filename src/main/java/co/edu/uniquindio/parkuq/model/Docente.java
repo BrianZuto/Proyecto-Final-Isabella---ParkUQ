@@ -20,7 +20,6 @@ public class Docente extends Usuario {
      */
     @Override
     public double obtenerDescuento() {
-        // TODO [Juan David]: retornar el descuento configurado para docentes
-        return 0.0;
+        return 0.30; // 30% descuento para docentes
     }
 }

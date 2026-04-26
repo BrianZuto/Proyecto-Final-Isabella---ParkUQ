@@ -18,7 +18,7 @@ public class Motocicleta extends Vehiculo {
      */
     @Override
     public double calcularTarifa(long horas, Tarifa tarifa) {
-        // TODO [Isabella]: aplicar valorPorHora y descuento de la tarifa
-        return 0;
+        double base = Math.max(horas, 1) * tarifa.getValorPorHora();
+        return base * (1 - tarifa.getDescuento());
     }
 }

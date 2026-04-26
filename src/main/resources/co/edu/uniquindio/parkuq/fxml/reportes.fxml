@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.parkuq.ui.controller.ReportesController"
+      spacing="14" styleClass="form-panel">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Dashboard – Reportes" styleClass="panel-title"/>
+
+    <!-- Stats Cards -->
+    <HBox spacing="20">
+        <VBox styleClass="stat-card" alignment="CENTER" spacing="6" prefWidth="160" prefHeight="90">
+            <Label text="Vehículos Dentro" styleClass="stat-label"/>
+            <Label fx:id="lblVehiculosDentro" text="0" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" alignment="CENTER" spacing="6" prefWidth="200" prefHeight="90">
+            <Label text="Ingresos del Día" styleClass="stat-label"/>
+            <Label fx:id="lblIngresosDiarios" text="$ 0" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Ocupación por tipo:" styleClass="form-label"/>
+    <Label fx:id="lblOcupacion" styleClass="ocupacion-label"/>
+
+    <Label text="Vehículos actualmente dentro" styleClass="form-label"/>
+    <TableView fx:id="tablaVehiculos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPlaca"     text="Placa"     prefWidth="100"/>
+            <TableColumn fx:id="colTipo"      text="Tipo"      prefWidth="110"/>
+            <TableColumn fx:id="colConductor" text="Conductor" prefWidth="180"/>
+            <TableColumn fx:id="colIngreso"   text="Ingreso"   prefWidth="140"/>
+            <TableColumn fx:id="colEspacio"   text="Espacio"   prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="12">
+        <Button text="Refrescar" onAction="#onRefrescar" styleClass="btn-secondary"/>
+        <Button text="Reiniciar Ingresos Diarios" onAction="#onReiniciarIngresos" styleClass="btn-warning"/>
+    </HBox>
+</VBox>

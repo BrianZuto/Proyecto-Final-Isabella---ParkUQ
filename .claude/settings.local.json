@@ -9,7 +9,12 @@
       "Bash(rm -rf \"C:/Users/Brian/IdeaProjects/ParkUQ/src/main/java/com\")",
       "Bash(rm -f \"C:/Users/Brian/IdeaProjects/ParkUQ/src/main/resources/com/example/parkuq/hello-view.fxml\")",
       "Bash(mvn clean *)",
-      "Bash(mvn test *)"
+      "Bash(mvn test *)",
+      "Bash(python -c ' *)",
+      "Bash(python3 -c ' *)",
+      "Bash(./mvnw test *)",
+      "Bash(./mvnw compile *)",
+      "Bash(git add *)"
     ]
   }
 }

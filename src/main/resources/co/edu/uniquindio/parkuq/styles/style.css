@@ -1,4 +1,195 @@
-/* =====================================================
-   PARKUQ – Hoja de estilos principal
-   TODO: agregar estilos personalizados aquí
-   ===================================================== */
+/* ========== GLOBAL ========== */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f0f2f5;
+}
+
+/* ========== LOGIN ========== */
+.login-root {
+    -fx-background-color: #ffffff;
+}
+.login-title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a3a5c;
+}
+.login-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+.hint-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #888888;
+}
+
+/* ========== TOPBAR ========== */
+.topbar {
+    -fx-background-color: #1a3a5c;
+    -fx-padding: 10 20 10 20;
+}
+.topbar-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+.topbar-info {
+    -fx-text-fill: #c8d8e8;
+    -fx-font-size: 13px;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+    -fx-background-color: #243b55;
+    -fx-padding: 16 8 16 8;
+}
+.sidebar-section {
+    -fx-text-fill: #8aaac5;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 4 4 4;
+}
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dde9f5;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8 12 8 12;
+    -fx-cursor: hand;
+    -fx-background-radius: 6;
+}
+.sidebar-btn:hover {
+    -fx-background-color: #1a3a5c;
+}
+
+/* ========== CONTENT AREA ========== */
+.content-area {
+    -fx-background-color: #f0f2f5;
+    -fx-padding: 24;
+}
+.main-root {
+    -fx-background-color: #f0f2f5;
+}
+
+/* ========== FORM PANEL ========== */
+.form-panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+    -fx-padding: 24;
+}
+.panel-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a3a5c;
+    -fx-padding: 0 0 8 0;
+}
+.form-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+    -fx-background-color: #1a6fc4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+}
+.btn-primary:hover { -fx-background-color: #145ea8; }
+
+.btn-secondary {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: #545b62; }
+
+.btn-success {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.btn-success:hover { -fx-background-color: #1e8449; }
+
+.btn-warning {
+    -fx-background-color: #e67e22;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.btn-warning:hover { -fx-background-color: #ca6f1e; }
+
+.btn-danger {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #c0392b; }
+
+.btn-logout {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+.btn-logout:hover { -fx-background-color: #a93226; }
+
+/* ========== LABELS ========== */
+.error-label {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 12px;
+}
+.info-label {
+    -fx-font-size: 13px;
+}
+.cobro-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a6fc4;
+}
+.placeholder-label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #aaaaaa;
+}
+.ocupacion-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+    -fx-font-family: "Courier New", monospace;
+}
+
+/* ========== STAT CARDS ========== */
+.stat-card {
+    -fx-background-color: #1a3a5c;
+    -fx-background-radius: 10;
+    -fx-padding: 16;
+}
+.stat-label {
+    -fx-text-fill: #8aaac5;
+    -fx-font-size: 12px;
+}
+.stat-value {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* ========== TABLE ========== */
+.table-view .column-header {
+    -fx-background-color: #e8eef4;
+    -fx-font-weight: bold;
+}
+.table-row-cell:selected {
+    -fx-background-color: #d0e4f7;
+}

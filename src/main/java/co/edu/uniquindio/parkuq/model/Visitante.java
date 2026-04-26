@@ -20,7 +20,6 @@ public class Visitante extends Usuario {
      */
     @Override
     public double obtenerDescuento() {
-        // TODO [Juan David]: los visitantes no tienen descuento por defecto
-        return 0.0;
+        return 0.0; // visitantes sin descuento
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.parkuq.ui.controller.EspaciosController"
+      spacing="12" styleClass="form-panel">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Gestión de Espacios" styleClass="panel-title"/>
+
+    <!-- Tabla -->
+    <TableView fx:id="tablaEspacios" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCodigo"  text="Código"    prefWidth="100"/>
+            <TableColumn fx:id="colTipo"    text="Tipo"      prefWidth="130"/>
+            <TableColumn fx:id="colEstado"  text="Estado"    prefWidth="160"/>
+            <TableColumn fx:id="colVehiculo" text="Vehículo" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <!-- Formulario agregar -->
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Código:" styleClass="form-label"/>
+        <TextField fx:id="txtCodigo" promptText="Ej: C-11" prefWidth="100"/>
+        <Label text="Tipo:" styleClass="form-label"/>
+        <ComboBox fx:id="cmbTipo" prefWidth="140"/>
+        <Button text="Agregar" onAction="#onAgregar" styleClass="btn-primary"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <Button text="Deshabilitar seleccionado" onAction="#onDeshabilitar" styleClass="btn-warning"/>
+        <Button text="Habilitar seleccionado"    onAction="#onHabilitar"    styleClass="btn-success"/>
+        <Button text="Refrescar"                 onAction="#onRefrescar"    styleClass="btn-secondary"/>
+    </HBox>
+
+    <Label fx:id="lblMensaje" wrapText="true"/>
+</VBox>

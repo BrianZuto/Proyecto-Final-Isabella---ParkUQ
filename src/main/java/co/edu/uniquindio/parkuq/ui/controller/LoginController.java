@@ -1,39 +1,62 @@
 package co.edu.uniquindio.parkuq.ui.controller;
 
+import co.edu.uniquindio.parkuq.App;
+import co.edu.uniquindio.parkuq.exception.CredencialesInvalidasException;
+import co.edu.uniquindio.parkuq.model.Parqueadero;
+import co.edu.uniquindio.parkuq.model.enums.Rol;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
- * Controlador de la vista de inicio de sesión (login.fxml).
+ * Controlador de la pantalla de inicio de sesión.
  *
  * @author Equipo PARKUQ
  */
 public class LoginController {
 
-    @FXML
-    private TextField txtUsuario;
+    @FXML private TextField     txtUsuario;
+    @FXML private PasswordField txtContrasena;
+    @FXML private Label         lblError;
+    @FXML private Button        btnIngresar;
 
-    @FXML
-    private PasswordField txtContrasena;
-
-    @FXML
-    private Button btnIngresar;
-
-    /**
-     * Acción ejecutada al hacer clic en el botón "Ingresar".
-     *
-     * TODO [Juan David] – implementar: llamar a AutenticacionService,
-     *                     mostrar error si las credenciales son inválidas,
-     *                     cargar la vista principal si son correctas.
-     */
     @FXML
     private void onIngresarClick() {
-        String usuario    = txtUsuario.getText();
+        String usuario    = txtUsuario.getText().trim();
         String contrasena = txtContrasena.getText();
+        lblError.setText("");
 
-        // TODO [Juan David]: validar con AutenticacionService y navegar a la siguiente vista
-        System.out.println("Intento de login – usuario: " + usuario);
+        try {
+            Rol rol = Parqueadero.getInstancia()
+                    .getAutenticacionService()
+                    .autenticar(usuario, contrasena);
+            navegarAMain(rol);
+        } catch (CredencialesInvalidasException e) {
+            lblError.setText(e.getMessage());
+        }
+    }
+
+    private void navegarAMain(Rol rol) {
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/main.fxml"));
+            Scene scene = new Scene(loader.load(), 1100, 700);
+            scene.getStylesheets().add(App.class.getResource("styles/style.css").toExternalForm());
+
+            MainController controller = loader.getController();
+            controller.inicializar(rol);
+
+            Stage stage = (Stage) btnIngresar.getScene().getWindow();
+            stage.setTitle("PARKUQ – Sistema de Parqueadero UniQuindío");
+            stage.setScene(scene);
+            stage.setResizable(true);
+            stage.show();
+        } catch (IOException e) {
+            lblError.setText("Error al cargar la pantalla principal.");
+            e.printStackTrace();
+        }
     }
 }

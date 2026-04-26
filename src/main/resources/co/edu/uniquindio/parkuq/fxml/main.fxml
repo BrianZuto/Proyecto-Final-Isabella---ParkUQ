@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="root"
+            fx:controller="co.edu.uniquindio.parkuq.ui.controller.MainController"
+            styleClass="main-root">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="PARKUQ" styleClass="topbar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Usuario: " styleClass="topbar-info"/>
+            <Label fx:id="lblUsuario" styleClass="topbar-info"/>
+            <Label text=" | Rol: " styleClass="topbar-info"/>
+            <Label fx:id="lblRol" styleClass="topbar-info"/>
+            <Button text="Cerrar Sesión" onAction="#onCerrarSesion" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox styleClass="sidebar" spacing="4" prefWidth="190">
+            <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+            <Label text="MENÚ" styleClass="sidebar-section"/>
+            <Button text="Registrar Ingreso"  onAction="#onIngreso"   maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Registrar Salida"   onAction="#onSalida"    maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button text="Espacios"           onAction="#onEspacios"  maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Label text="ADMINISTRACIÓN" styleClass="sidebar-section"/>
+            <Button fx:id="btnUsuarios" text="Usuarios"  onAction="#onUsuarios" maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Button fx:id="btnTarifas"  text="Tarifas"   onAction="#onTarifas"  maxWidth="Infinity" styleClass="sidebar-btn"/>
+            <Label text="REPORTES" styleClass="sidebar-section"/>
+            <Button text="Dashboard / Reportes" onAction="#onReportes" maxWidth="Infinity" styleClass="sidebar-btn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT AREA (loaded dynamically) -->
+    <center>
+        <StackPane fx:id="contenido" styleClass="content-area">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Seleccione una opción del menú" styleClass="placeholder-label"/>
+        </StackPane>
+    </center>
+</BorderPane>

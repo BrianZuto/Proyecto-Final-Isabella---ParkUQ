@@ -11,37 +11,48 @@ import java.util.List;
  */
 public class UsuariosService {
 
+    private final List<Usuario> usuarios;
+
+    public UsuariosService(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
     /**
-     * Registra un nuevo usuario en el sistema.
+     * Registra un nuevo usuario validando que la identificación no esté duplicada.
      *
-     * TODO [Juan David] – implementar: validar que la identificación no esté duplicada.
-     *
-     * @param usuario usuario a registrar
+     * @throws IllegalArgumentException si ya existe un usuario con esa identificación
      */
     public void registrarUsuario(Usuario usuario) {
-        // TODO [Juan David]: implementar
+        if (buscarPorIdentificacion(usuario.getIdentificacion()) != null) {
+            throw new IllegalArgumentException(
+                    "Ya existe un usuario con identificación: " + usuario.getIdentificacion());
+        }
+        usuarios.add(usuario);
     }
 
     /**
      * Busca un usuario por número de identificación.
      *
-     * TODO [Juan David] – implementar.
-     *
-     * @param identificacion número de identificación
-     * @return usuario encontrado o null
+     * @return usuario encontrado o null si no existe
      */
     public Usuario buscarPorIdentificacion(String identificacion) {
-        // TODO [Juan David]: implementar
-        return null;
+        return usuarios.stream()
+                .filter(u -> u.getIdentificacion().equalsIgnoreCase(identificacion))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /** Lista todos los usuarios registrados. */
+    public List<Usuario> listarUsuarios() {
+        return usuarios;
     }
 
     /**
-     * Lista todos los usuarios registrados.
+     * Elimina un usuario del sistema por identificación.
      *
-     * TODO [Juan David] – implementar.
+     * @return true si fue eliminado, false si no existía
      */
-    public List<Usuario> listarUsuarios() {
-        // TODO [Juan David]: implementar
-        return List.of();
+    public boolean eliminarUsuario(String identificacion) {
+        return usuarios.removeIf(u -> u.getIdentificacion().equalsIgnoreCase(identificacion));
     }
 }
